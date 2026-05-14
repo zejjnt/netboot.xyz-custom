@@ -3,10 +3,22 @@
 ### netboot.xyz-custom menu
 ###
 
-:start
-echo Hello world!
-sleep 10
-goto custom_exit
+:custom_menu
+menu Custom Boot Options
+item --gap -- ISO Boot
+item my_iso ${space} Boot My Custom ISO netboot
+item my_iso2 ${space} Boot My Custom ISO full
+item return ${space} Return to main Menu
+choose --default return targe && goto ${target}
 
-:custom_exit
-exit 0
+:my_iso
+echo Loading My Custom ISO netboot...
+kernel https://boot.netboot.xyz/memdisk iso raw
+initrd https://mirrors.xcp-ng.org/isos/8.3/xcp-ng-8.3.0-20250606-netinstall.iso?https=1
+boot
+
+:my_iso2
+echo Loading My Custom ISO full...
+kernel https://boot.netboot.xyz/memdisk iso raw
+initrd https://mirrors.xcp-ng.org/isos/8.3/xcp-ng-8.3.0-20250606.2.iso?https=1
+boot
