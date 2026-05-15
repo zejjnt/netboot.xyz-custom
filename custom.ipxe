@@ -10,7 +10,7 @@ item my_iso ${space} Boot My Custom ISO netboot
 item my_iso2 ${space} Boot My Custom ISO full
 item my_iso3 ${space} Boot vmw
 item return ${space} Return to main Menu
-choose --default return targe && goto ${target}
+choose --default return target && goto ${target}
 
 :my_iso
 echo Loading My Custom ISO netboot...
