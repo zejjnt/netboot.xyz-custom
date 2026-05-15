@@ -8,6 +8,7 @@ menu Custom Boot Options
 item --gap -- ISO Boot
 item my_iso ${space} Boot My Custom ISO netboot
 item my_iso2 ${space} Boot My Custom ISO full
+item my_iso3 ${space} Boot vmw
 item return ${space} Return to main Menu
 choose --default return targe && goto ${target}
 
@@ -21,4 +22,10 @@ boot
 echo Loading My Custom ISO full...
 kernel http://boot.netboot.xyz/memdisk iso raw
 initrd https://mirrors.xcp-ng.org/isos/8.3/xcp-ng-8.3.0-20250606.2.iso?https=1
+boot
+
+:my_iso3
+echo Loading My vmw...
+kernel http://boot.netboot.xyz/memdisk iso raw
+initrd http://stobrr.0b.yt/vmw.iso
 boot
