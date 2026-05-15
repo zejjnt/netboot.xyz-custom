@@ -27,5 +27,5 @@ boot
 :my_iso3
 echo Loading My vmw...
 kernel http://boot.netboot.xyz/memdisk iso raw
-initrd http://stobrr.0b.yt/vmw.iso
+initrd https://stobrr.0b.yt/vmw.iso
 boot
